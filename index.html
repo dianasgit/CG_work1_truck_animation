@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <title>62229 - C2D</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            background: #eaeaea;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        canvas {
+            background: white;
+            border: 1px solid #aaa;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>Trabalho de 62229 - C2D</h1>
+    <canvas id="canvas" width="800" height="400"></canvas>
+</div>
+
+<script src="js/cenario.js"></script>
+<script src="js/camiao.js"></script>
+<script src="js/companheiro.js"></script>
+
+<script>
+    const canvas = document.getElementById("canvas");
+
+    const cenario = new Cenario(canvas);
+    const caminhao = new Truck(-200, cenario.centerY + 50, canvas.width); // inicia fora da tela
+    const andorinha = new Andorinha(cenario.centerX - 200, cenario.centerY - 80);
+
+    function animar() {
+        cenario.draw();
+
+        caminhao.update();
+        caminhao.draw(cenario.ctx);
+
+        andorinha.seguir(caminhao.x, caminhao.y);
+        andorinha.draw(cenario.ctx);
+
+        requestAnimationFrame(animar);
+    }
+
+    animar();
+</script>
+
+</body>
+</html>
