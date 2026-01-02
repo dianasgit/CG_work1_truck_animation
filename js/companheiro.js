@@ -1,31 +1,30 @@
 class Andorinha {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        this.anX = x;
+        this.anY = y;
         this.fase = 0;
     }
 
     seguir(alvoX, alvoY) {
-        this.x += (alvoX - this.x - 60) * 0.03;
-        this.y += (alvoY - this.y - 60) * 0.05;
+        this.anX += (alvoX - this.anX - 60) *0.03;
+        this.anY += (alvoY - this.anY -150) * 0.05;
         this.fase += 0.3;
     }
 
     draw(ctx) {
-        ctx.strokeStyle = "#000";
         ctx.lineWidth = 2;
 
         ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x + 12, this.y);
+        ctx.moveTo(this.anX, this.anY);
+        ctx.lineTo(this.anX + 12, this.anY); //corpo do pássaro
         ctx.stroke();
 
-        const asa = Math.sin(this.fase) * 6;
+        const asa = Math.sin(this.fase) * 10; //varia entre +-10
         ctx.beginPath();
-        ctx.moveTo(this.x + 4, this.y);
-        ctx.lineTo(this.x - 6, this.y - 6 - asa);
-        ctx.moveTo(this.x + 8, this.y);
-        ctx.lineTo(this.x + 18, this.y - 6 - asa);
+        ctx.moveTo(this.anX + 4, this.anY);
+        ctx.lineTo(this.anX - 6, this.anY - asa);//asa esquerda
+        ctx.moveTo(this.anX + 8, this.anY);
+        ctx.lineTo(this.anX + 18, this.anY  - asa); //asa direita
         ctx.stroke();
     }
 }

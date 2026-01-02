@@ -1,4 +1,3 @@
-// ===== CAMINHÃO =====
 class TruckPart {
     constructor(truck) {
         this.truck = truck;
@@ -29,12 +28,14 @@ class Lataria extends TruckPart {
         ctx.closePath();
         ctx.fill();
 
-        ctx.fillStyle = "#aaaaaa";
-        ctx.fillRect(x - 10, y + h - 10, 170, 10);
-        ctx.fillRect(x + w - 12, y + h - 30, 23, 30);
-        ctx.fillRect(x + w + 5, y + h - 50, 5, 30);
+        //frente
         ctx.fillStyle = "#faf8f8";
         ctx.fillRect(x + w, y + h - 50, 5, 30);
+        ctx.fillStyle = "#aaaaaa";
+        ctx.fillRect(x - 10, y + h - 10, 170, 10); //parte de baixo
+        ctx.fillRect(x + w - 12, y + h - 30, 23, 30);
+        ctx.fillRect(x + w + 5, y + h - 50, 5, 30);
+        
     }
 }
 
@@ -93,10 +94,10 @@ class Escada extends TruckPart {
         ctx.fillRect(x + 5, y - 20, 95, 20);
         ctx.fillRect(x + 5, y - 20, 25, 30);
 
-        ctx.fillStyle = "#9fd3ff";
+        ctx.fillStyle = "#497faaff";
         ctx.strokeStyle = "black";
         ctx.lineWidth = 0.5;
-
+            //desenho dos quadrado internos da escada
         [30, 55, 80].forEach(dx => {
             ctx.fillRect(x + dx, y - 17, 15, 15);
             ctx.strokeRect(x + dx, y - 17, 15, 15);
