@@ -18,8 +18,6 @@ class Cenario {
 	const ctx = this.ctx;
 	const { width, height } = this.canvas;
 
-	ctx.clearRect(0, 0, width, height);
-
 	// Fundo
 	if (this.fundoCarregado) {
 	  ctx.drawImage(this.fundo, 0, 0, width, height);

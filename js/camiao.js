@@ -11,7 +11,7 @@ class Lataria extends TruckPart {
     draw(ctx) {
         const x = this.x, y = this.y;
         const w = 150, h = 100, r = 10;
-
+        //corpo
         ctx.fillStyle = "red";
         ctx.beginPath();
         ctx.moveTo(x + r, y);
@@ -35,7 +35,6 @@ class Lataria extends TruckPart {
         ctx.fillRect(x - 10, y + h - 10, 170, 10); //parte de baixo
         ctx.fillRect(x + w - 12, y + h - 30, 23, 30);
         ctx.fillRect(x + w + 5, y + h - 50, 5, 30);
-        
     }
 }
 
@@ -54,20 +53,20 @@ class Vidros extends TruckPart {
     }
 }
 
-class Roda extends TruckPart {
-    constructor(truck, ox) {
-        super(truck);
-        this.ox = ox;
-    }
+class PinturaZ extends TruckPart {
     draw(ctx) {
-        const x = this.x + this.ox, y = this.y + 93;
-        ctx.fillStyle = "#363434";
+        const x = this.x, y = this.y;
+        ctx.fillStyle = "#f3ecec";
         ctx.beginPath();
-        ctx.arc(x, y, 18, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillStyle = "silver";
-        ctx.beginPath();
-        ctx.arc(x, y, 10, 0, Math.PI * 2);
+        ctx.moveTo(x, y + 50);
+        ctx.lineTo(x + 50, y + 50);
+        ctx.lineTo(x + 70, y + 70);
+        ctx.lineTo(x + 100, y + 70);
+        ctx.lineTo(x + 100, y + 80);
+        ctx.lineTo(x + 67, y + 80);
+        ctx.lineTo(x + 45, y + 60);
+        ctx.lineTo(x, y + 60);
+        ctx.closePath();
         ctx.fill();
     }
 }
@@ -84,6 +83,24 @@ class Paralama extends TruckPart {
         ctx.arc(x, y, 22, Math.PI, 0);
         ctx.fill();
         ctx.fillRect(x - 21, y - 5, 42, 15);
+    }
+}
+
+class Roda extends TruckPart {
+    constructor(truck, ox) {
+        super(truck);
+        this.ox = ox;
+    }
+    draw(ctx) {
+        const x = this.x + this.ox, y = this.y + 93;
+        ctx.fillStyle = "#363434"; //peneu
+        ctx.beginPath();
+        ctx.arc(x, y, 18, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "silver"; //calotas
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, Math.PI * 2);
+        ctx.fill();
     }
 }
 
@@ -115,24 +132,6 @@ class Sirene extends TruckPart {
         ctx.beginPath();
         ctx.arc(x + 105, y - 6, 4.5, 0, Math.PI * 2);
         ctx.arc(x + 115, y - 6, 4.5, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-class PinturaZ extends TruckPart {
-    draw(ctx) {
-        const x = this.x, y = this.y;
-        ctx.fillStyle = "#f3ecec";
-        ctx.beginPath();
-        ctx.moveTo(x, y + 50);
-        ctx.lineTo(x + 50, y + 50);
-        ctx.lineTo(x + 70, y + 70);
-        ctx.lineTo(x + 100, y + 70);
-        ctx.lineTo(x + 100, y + 80);
-        ctx.lineTo(x + 67, y + 80);
-        ctx.lineTo(x + 45, y + 60);
-        ctx.lineTo(x, y + 60);
-        ctx.closePath();
         ctx.fill();
     }
 }
